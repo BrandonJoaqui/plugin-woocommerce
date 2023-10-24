@@ -14,6 +14,7 @@ class WC_Gateway_Wompi_Custom extends WC_Payment_Gateway {
     public $public_key;
     public $private_key;
     public $event_secret_key;
+    public $integrity_key;
     public static $supported_currency = false;
 
     private $checkout_url = "https://checkout.wompi.co";
