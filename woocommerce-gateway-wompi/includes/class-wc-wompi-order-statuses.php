@@ -44,8 +44,10 @@ class WC_Wompi_Order_Statuses {
             $add_status = true;
         } else {
             global $pagenow, $post;
-            if ( $pagenow == 'edit.php' && $_GET['post_type'] == 'shop_order' ) {
-                $add_status = true;
+            if ( $pagenow == 'edit.php' && isset($_GET['post_type']) ) {
+                if( $_GET['post_type'] == 'shop_order' ){
+                   $add_status = true; 
+                }
             } elseif ( $pagenow == 'post.php' && is_object( $post ) && $post->post_type == 'shop_order' ) {
                 $order = new WC_Order( $post->ID );
                 $status = $order->get_status();
